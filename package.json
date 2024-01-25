@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client",
+    "e2e"
+  ],
+  "scripts": {
+    "build:client": "yarn workspace burger-challenge-test-client build",
+    "dev": "yarn workspace burger-challenge-test-server dev",
+    "dev:debug": "yarn workspace burger-challenge-test-server dev:debug",
+    "heroku-postbuild": "yarn workspace burger-challenge-test-client build",
+    "start": "yarn workspace burger-challenge-test-server start",
+    "dev:cypress": "yarn workspace burger-challenge-test-server dev:e2e",
+    "e2e:open": "yarn workspace burger-challenge-test-e2e e2e:open",
+    "e2e:run": "yarn workspace burger-challenge-test-e2e e2e:run"
+  },
+  "engines": {
+    "node": "^16.18"
+  }
+}
