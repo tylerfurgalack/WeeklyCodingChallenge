@@ -15,6 +15,7 @@ class Order extends Model {
         type: { type: "string" },
         toppings: { type: "array" },
         bun: { type: "string" },
+        showSides: { type: "boolean" },
         side: { type: "string" },
       },
     };

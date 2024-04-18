@@ -21,6 +21,11 @@
   margin-top: 2.5%;
   max-width: 80%; /* Adjust the maximum width as needed */
   text-align: center; /* Center the contents */
+  //center the contents inside the form
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-input {
@@ -31,4 +36,28 @@
   min-width: auto;
   max-width: 70%;
   border-radius: 2px;
+}
+
+.submit-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.form {
+  //center the contents inside the form//
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.toppings-selection-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
 }

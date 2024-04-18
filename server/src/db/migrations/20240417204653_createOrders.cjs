@@ -10,7 +10,7 @@ exports.up = async (knex) => {
     table.increments("id").primary();
     table.string("burgers").notNullable();
     table.string("type").notNullable();
-    table.json("toppings").notNullable();
+    table.json("toppings");
     table.string("bun").notNullable();
     table.boolean("showSides").notNullable();
     table.string("side");

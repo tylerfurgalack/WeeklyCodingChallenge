@@ -89,7 +89,7 @@ const BurgerForm = () => {
   return (
     <div className="form-container">
       <h3>Big Kahuna Burger </h3>
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={onSubmitHandler} className="form">
         <label>Burgers</label>
         <input
           className="form-input"
@@ -113,63 +113,65 @@ const BurgerForm = () => {
           <option value="vegan">Vegan</option>
         </select>
         <div>
-          Toppings
-          <input
-            type="checkbox"
-            name="toppings"
-            value="lettuce"
-            checked={formState.toppings.includes("lettuce")}
-            onChange={onChangeHandler}
-          ></input>
-          <label>Lettuce</label>
-          <input
-            type="checkbox"
-            name="toppings"
-            value="tomato"
-            checked={formState.toppings.includes("tomato")}
-            onChange={onChangeHandler}
-          ></input>
-          <label>Tomato</label>
-          <input
-            type="checkbox"
-            name="toppings"
-            value="onion"
-            checked={formState.toppings.includes("onion")}
-            onChange={onChangeHandler}
-          ></input>
-          <label>Onion</label>
-          <input
-            type="checkbox"
-            name="toppings"
-            value="pickles"
-            checked={formState.toppings.includes("pickles")}
-            onChange={onChangeHandler}
-          ></input>
-          <label>Pickles</label>
-          <input
-            type="checkbox"
-            name="toppings"
-            value="cheese"
-            checked={formState.toppings.includes("cheese")}
-            onChange={onChangeHandler}
-          ></input>
-          <label>Cheese</label>
-          <input
-            type="checkbox"
-            name="toppings"
-            value="mayo"
-            checked={formState.toppings.includes("mayo")}
-            onChange={onChangeHandler}
-          ></input>
-          <label>Mayo</label>
-          <input
-            type="checkbox"
-            name="toppings"
-            value="ketchup"
-            checked={formState.toppings.includes("ketchup")}
-            onChange={onChangeHandler}
-          ></input>
-          <label>Ketchup</label>
+          Toppings:
+          <div className="topping-selection-container">
+            <input
+              type="checkbox"
+              name="toppings"
+              value="lettuce"
+              checked={formState.toppings.includes("lettuce")}
+              onChange={onChangeHandler}
+            ></input>
+            <label>Lettuce</label>
+            <input
+              type="checkbox"
+              name="toppings"
+              value="tomato"
+              checked={formState.toppings.includes("tomato")}
+              onChange={onChangeHandler}
+            ></input>
+            <label>Tomato</label>
+            <input
+              type="checkbox"
+              name="toppings"
+              value="onion"
+              checked={formState.toppings.includes("onion")}
+              onChange={onChangeHandler}
+            ></input>
+            <label>Onion</label>
+            <input
+              type="checkbox"
+              name="toppings"
+              value="pickles"
+              checked={formState.toppings.includes("pickles")}
+              onChange={onChangeHandler}
+            ></input>
+            <label>Pickles</label>
+            <input
+              type="checkbox"
+              name="toppings"
+              value="cheese"
+              checked={formState.toppings.includes("cheese")}
+              onChange={onChangeHandler}
+            ></input>
+            <label>Cheese</label>
+            <input
+              type="checkbox"
+              name="toppings"
+              value="mayo"
+              checked={formState.toppings.includes("mayo")}
+              onChange={onChangeHandler}
+            ></input>
+            <label>Mayo</label>
+            <input
+              type="checkbox"
+              name="toppings"
+              value="ketchup"
+              checked={formState.toppings.includes("ketchup")}
+              onChange={onChangeHandler}
+            ></input>
+            <label>Ketchup</label>
+          </div>
         </div>
         <div>
           Select a Bun
@@ -214,7 +216,7 @@ const BurgerForm = () => {
             </select>
           )}
         </div>
-        <input type="submit" value="Submit"></input>
+        <input className="submit-button button" type="submit" value="Submit"></input>
       </form>
     </div>
   );
