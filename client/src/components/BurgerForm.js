@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import FormError from "./layout/FormError";
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -19,7 +20,7 @@ const BurgerForm = () => {
     toppings: [],
     bun: "hawaiian",
     showSides: false,
-    side: "",
+    side: "none",
   };
 
   // useReducer hook
@@ -54,17 +55,44 @@ const BurgerForm = () => {
     dispatch({ type: "TOGGLE_SIDES" });
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
-    console.log("Burger Order:", formState);
+    console.log(
+      `BURGER ORDER
+    Burgers:${formState.burgers}
+    Cooked Type: ${formState.type}
+    Toppings: ${formState.toppings.join(", ")}
+    Bun: ${formState.bun}
+    Side: ${formState.side}
+    `
+    );
+    try {
+      // Send the form data to the server
+      const response = await fetch("/api/v1/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
+
+      if (response.ok) {
+        console.log("Order submitted!");
+      } else {
+        console.log("Order failed!");
+      }
+    } catch (error) {
+      console.error(`Error in fetch: ${error.message}`);
+    }
   };
 
   return (
-    <div>
+    <div className="form-container">
       <h3>Big Kahuna Burger </h3>
       <form onSubmit={onSubmitHandler}>
         <label>Burgers</label>
         <input
+          className="form-input"
           name="burgers"
           placeholder="How many?"
           type="number"
@@ -72,7 +100,12 @@ const BurgerForm = () => {
           onChange={onChangeHandler}
         ></input>
         <label>Type of Burger</label>
-        <select name="type" value={formState.type} onChange={onChangeHandler}>
+        <select
+          className="form-input"
+          name="type"
+          value={formState.type}
+          onChange={onChangeHandler}
+        >
           <option value="medium">Medium</option>
           <option value="medium-rare">Medium Rare</option>
           <option value="well-done">Well Done</option>
@@ -167,7 +200,12 @@ const BurgerForm = () => {
           </button>
 
           {formState.showSides && (
-            <select name="sides" value={formState.side} onChange={onChangeHandler}>
+            <select
+              className="form-input"
+              name="side"
+              value={formState.side}
+              onChange={onChangeHandler}
+            >
               <option value="none">-</option>
               <option value="fries">Fries</option>
               <option value="salad">Salad</option>
